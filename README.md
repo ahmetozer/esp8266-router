@@ -39,6 +39,7 @@ const char* espHostname =     "WifiReperater2";
 3. Find ESP8266 IPAddress on your router.  
 4. Go to Advanced Routing settings.  
 5. Add esp network to router.
+
 <img src="https://github.com/ahmetozer/esp8266-router/blob/master/advanced_router_settings.jpg?raw=true" alt="Advanced route setting for ESP8266" onerror="this.src='advanced_router_settings.jpg';" />
 
 
