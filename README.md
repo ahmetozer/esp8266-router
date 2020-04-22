@@ -50,3 +50,5 @@ const char* espHostname =     "WifiReperater2";
 it is delegated with `Wifi_SoftAP_Channel` variable.
 - Increase CPU speed to 160 MHz to gain between 1.5 - 1.8 more speed on your extend project. You can found this setting on Arduino software under tools menu.
 - Change lwIP library version to "V2 IPv6 High Bandwidth"
+
+# [Source Code - Github](https://github.com/ahmetozer/esp8266-router)
