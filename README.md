@@ -54,6 +54,13 @@ it is delegated with `Wifi_SoftAP_Channel` variable.
 ## Without Configuring Home Side - Update
 
 Nat is Disabled by default for better performance but if you don't have chance to edit route table on router or having issue, you can enable NAT on ESP8266.
-**NOTE: You have to select lwIP library version to "V2 High Bandwidth" for enabling nat. Other wise nat will not work.
+
+```c++
+#define NAT_Enabled true
+```
+
+**NOTE**: You have to select lwIP library version to "V2 High Bandwidth" for enabling nat. Other wise nat will not work.
+
+**Serial output is disabled by default. To enable set to true `SERIAL_Enabled true`**
 
 ## [Source Code - Github](https://github.com/ahmetozer/esp8266-router) | [BLOG](https://ahmetozer.org/ESP8266-Wifi-Range-Extender.html)

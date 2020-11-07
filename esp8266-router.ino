@@ -5,7 +5,7 @@
 
 #if LWIP_FEATURES
 
-#define SERIAL_DEBUG true // To show details on serial
+#define SERIAL_Enabled false // To show details on serial
 // Write Your Router SSID which is your wifi name and your wifi PASSWORD.
 const char *SSID = "ahmetozer.org";
 const char *PASSWORD = "12345678";
@@ -37,20 +37,20 @@ const char *espHostname = SOFT_AP_SSID; // By default, hostname is AP SSID but i
 
 void setup()
 {
-#if SERIAL_DEBUG
+#if SERIAL_Enabled
   Serial.begin(115200);
   Serial.println();
   Serial.println("\n\n\nStarting ...");
 #endif
   WiFi.mode(WIFI_AP_STA);
-#if SERIAL_DEBUG
+#if SERIAL_Enabled
   Serial.print("Connecting to ");
   Serial.println(SSID);
 #endif
   WiFi.begin(SSID, PASSWORD);
   while (WiFi.status() != WL_CONNECTED)
   {
-#if SERIAL_DEBUG
+#if SERIAL_Enabled
     Serial.print(".");
 #endif
     delay(500);
@@ -66,7 +66,7 @@ void setup()
 
   WiFi.softAPConfig(SOFT_AP_Local_IP, SOFT_AP_Gateway, SOFT_AP_Subnet);
   WiFi.softAP(SOFT_AP_SSID, SOFT_AP_PASSWORD, SOFT_AP_Channel);
-#if SERIAL_DEBUG
+#if SERIAL_Enabled
   // Wifi Client Part
   Serial.printf("\nConnected WiFi %s\n MAC addr: %s\nESP8266 client ip address: %s \nDNS adresses: %s , %s\n",
   SSID, WiFi.softAPmacAddress().c_str(),
@@ -84,18 +84,18 @@ void setup()
 
 #if NAT_Enabled  && !LWIP_IPV6
   err_t nat_err = ip_napt_init(NAPT, NAPT_PORT);
-#if SERIAL_DEBUG
+#if SERIAL_Enabled
   Serial.println("Initializing NAT");
 #endif
   if (nat_err == ERR_OK)
   {
     nat_err = ip_napt_enable_no(SOFTAP_IF, 1);
-#if SERIAL_DEBUG
+#if SERIAL_Enabled
     Serial.println("Enabling NAT on AP");
 #endif
     if (nat_err == ERR_OK)
     {
-#if SERIAL_DEBUG
+#if SERIAL_Enabled
       Serial.printf("Nat Is Enabled on '%s' \n", SOFT_AP_SSID);
 #endif
     }
@@ -103,7 +103,7 @@ void setup()
 
   if (nat_err != ERR_OK)
   {
-#if SERIAL_DEBUG
+#if SERIAL_Enabled
     Serial.println("ERR: NAT is not initialized");
 #endif
   }
